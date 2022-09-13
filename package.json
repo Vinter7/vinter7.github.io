@@ -1,0 +1,15 @@
+{
+  "name": "vinter7.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Vinter7/vinter7.github.io.git",
+  "author": "高枕枕 <brgzz@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.51"
+  }
+}
