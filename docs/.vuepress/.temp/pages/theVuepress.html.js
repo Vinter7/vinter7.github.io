@@ -1,1 +1,0 @@
-export const data = JSON.parse("{\"key\":\"v-5d7f8ef8\",\"path\":\"/theVuepress.html\",\"title\":\"Blog采用vuepress 搭建\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{\"updatedTime\":1663060705000,\"contributors\":[{\"name\":\"高枕枕\",\"email\":\"brgzz@qq.com\",\"commits\":1}]},\"filePathRelative\":\"theVuepress.md\"}")
