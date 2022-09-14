@@ -1,17 +1,14 @@
 ---
 home: true
 title: Home
-heroImage: /images/hero.png
+heroImage: /images/vue.png
 actions:
-  - text: Get Started
+  - text: Front End
     link: /guide/getting-started.html
     type: primary
-  - text: Introduction
+  - text: My Blog
     link: /guide/
     type: secondary
-  - text: JavaScript
-    link: /JavaScript/
-    type: 
 features:
   - title: Simplicity First
     details: Minimal setup with markdown-centered project structure helps you focus on writing.
@@ -22,9 +19,8 @@ features:
   - title: Themes
     details: Providing a default theme out of the box. You can also choose a community theme or create your own one.
   - title: Plugins
-    details: Flexible plugin API, allowing plugins to provide lots of plug-and-play features for your site. 
+    details: Flexible plugin API, allowing plugins to provide lots of plug-and-play features for your site.
   - title: Bundlers
     details: Default bundler is Vite, while Webpack is also supported. Choose the one you like!
 footer: MIT Licensed | Copyright © 2022-present 高枕枕
 ---
-
