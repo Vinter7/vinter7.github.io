@@ -1,4 +1,6 @@
-# Syntax Extensions
+# Markdown
+
+## Syntax Extensions
 
 - 表格删除线
 - 链接
@@ -13,7 +15,7 @@
 - 导入代码块
   - `@[code{3-10} js{3}:no-line-numbers](../foo.js)`
 
-# Vue SFC
+## Vue SFC
 
 
 演示{{ msg }}
@@ -46,3 +48,17 @@ const count = ref(0)
 }
 </style>
 
+
+## Custom Containers
+
+```md
+::: <type> [title]
+[content]
+type : tip warning danger details
+:::
+```
+
+
+::: warning title
+This is a warning
+:::
