@@ -1,1 +1,0 @@
-import{_ as t,o as a,c as o,a as e,b as c}from"./app.eba22aa4.js";const n={},r=e("h2",{id:"hello-gzz",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#hello-gzz","aria-hidden":"true"},"#"),c(" hello gzz")],-1),s=[r];function l(_,d){return a(),o("div",null,s)}const i=t(n,[["render",l],["__file","index.html.vue"]]);export{i as default};
