@@ -3,7 +3,6 @@
 
 ## config
 
-> 全局配置
 
 - base
 - lang
@@ -15,7 +14,7 @@
   
 ## Frontmatter
 
-> 页面级作用域的配置
+
 - Vuepress
   - date `yyyy-mm-dd`
   - description
@@ -23,12 +22,30 @@
   - lang
   - title
 - Theme
+  - pageClass
+  - Home Page
+    - home 是否首页
+    - heroImage
+    - heroText
+    - tagline
+    - actions
+      - text link type
+    - features
+      - title details
+    - footer
+    - footerHtml
+  - Normal Page
+    - lastUpdated
+    - sidebar
+    - prev
+    - next
   
   
 
 ## Theme
 
-> Default theme is enough
+
+### Configs
 
 - colorMode
 - colorModeSwitch
@@ -51,3 +68,17 @@
 - sidebarDepth
 - lastUpdated
 - notFound
+
+### Components
+
+- Badge
+  - type text vertical
+- CodeGroup
+  - CodeGroupItem
+    - title
+
+### Styles
+
+- `.vuepress/styles/`
+- Palette.scss
+- index.scss

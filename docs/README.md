@@ -1,7 +1,7 @@
 ---
 home: true
 title: Home
-heroImage: /images/vue.png
+heroImage: /images/vue.svg
 actions:
   - text: Front End
     link: /guide/getting-started.html

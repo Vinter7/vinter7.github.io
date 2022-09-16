@@ -19,7 +19,13 @@ export default defineUserConfig({
     logo: '/images/风车.png',
     repo: 'Vinter7/vinter7.github.io',
     sidebar: {
-      '/Vuepress': ['/Vuepress/Configs.md', '/Vuepress/Markdown.md'],
+      '/Vuepress/': [
+        {
+          text: 'Vuepress使用',
+          collapsible: true,
+          children: ['/Vuepress/Configs.md', '/Vuepress/Markdown.md'],
+        },
+      ],
     },
     editLink: false,
   }),
