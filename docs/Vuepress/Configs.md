@@ -82,3 +82,31 @@
 - `.vuepress/styles/`
 - Palette.scss
 - index.scss
+  - --c-brand
+  - --c-bg
+  - --c-text
+  - --code-bg-color
+  - --c-border
+
+
+### Extending
+
+
+- Layout Slots
+  - navbar (before) (after)
+  - sidebar (top) (bottem)
+  - page (top) (bottom) (content-top/bottom)
+- Components Replacement
+- Developing a Child Theme
+
+
+
+## Plugin
+
+- back-to-top 回顶部
+- container 
+- external-link-icon 外链图标
+- medium-zoom 图片缩放
+- nprogress 加载条
+- register-components 注册组件
+- search
