@@ -56,7 +56,7 @@ export default defaultTheme({
         },
         {
           text: 'Others',
-          children: ['/others/git', '/others/regexp'],
+          children: ['/others/git', '/others/regexp', '/others/vim'],
         },
       ],
     },
@@ -64,11 +64,53 @@ export default defaultTheme({
   logo: '/images/风车.png',
   repo: 'Vinter7/vinter7.github.io',
   sidebar: {
-    '/Vuepress/': [
+    '/Vuepress/': ['/Vuepress/Configs.md', '/Vuepress/Markdown.md'],
+
+    '/diary/': [
+      '/diary/the-past.md',
+      '/diary/2206.md',
+      '/diary/2207.md',
+      '/diary/2208.md',
+      '/diary/2209.md',
+    ],
+    '/others/': [
+      '/others/git.md',
+      '/others/regexp.md',
+      '/others/vim.md',
+    ],
+    '/front-end/': [
       {
-        text: 'Vuepress使用',
+        text: 'HTML & CSS',
         collapsible: true,
-        children: ['/Vuepress/Configs.md', '/Vuepress/Markdown.md'],
+        children: [
+          '/front-end/html&css/html',
+          '/front-end/html&css/css-selector',
+          '/front-end/html&css/css-position',
+          '/front-end/html&css/css-flexbox',
+          '/front-end/html&css/sass',
+        ],
+      },
+      {
+        text: 'JavaScript',
+        collapsible: true,
+        children: [
+          '/front-end/javascript/fundamentals',
+          '/front-end/javascript/objects',
+          '/front-end/javascript/promise',
+          '/front-end/javascript/es6',
+          '/front-end/javascript/dom',
+          '/front-end/javascript/events',
+          '/front-end/javascript/others',
+        ],
+      },
+      {
+        text: 'Vue.js',
+        collapsible: true,
+        children: [
+          '/front-end/vue/essentials',
+          '/front-end/vue/components',
+          '/front-end/vue/extra',
+        ],
       },
     ],
   },
