@@ -13,9 +13,7 @@ export default defaultTheme({
           text: 'HTML & CSS',
           children: [
             '/front-end/html&css/html',
-            '/front-end/html&css/css-selector',
-            '/front-end/html&css/css-position',
-            '/front-end/html&css/css-flexbox',
+            '/front-end/html&css/css',
             '/front-end/html&css/sass',
           ],
         },
@@ -84,9 +82,7 @@ export default defaultTheme({
         collapsible: true,
         children: [
           '/front-end/html&css/html',
-          '/front-end/html&css/css-selector',
-          '/front-end/html&css/css-position',
-          '/front-end/html&css/css-flexbox',
+          '/front-end/html&css/css',
           '/front-end/html&css/sass',
         ],
       },

@@ -1,6 +1,7 @@
 set -e
 yarn docs:build
 cd dist
+echo 'linhua.co' > CNAME
 git init
 git add .
 git commit -m 'deploy'
