@@ -6,8 +6,6 @@ HTML、CSS、JavaScript、Vue.js 等前端技术
 
 
 
-<div class="flexbox1">
-  <div>
   
 **HTML&CSS**
 
@@ -15,9 +13,7 @@ HTML、CSS、JavaScript、Vue.js 等前端技术
 2. [CSS 层叠样式表](./html&css/css.md)
 3. [SASS 扩展语言](./html&css/sass.md)
 
-  </div>
 
-  <div>
 
 **JavaScript**
 
@@ -29,8 +25,7 @@ HTML、CSS、JavaScript、Vue.js 等前端技术
 6. [浏览器事件](./javascript/events.md)
 7. [Others](./javascript/others.md)
 
-  </div>
-  <div>
+
 
 **Vue.js**
 
@@ -38,14 +33,4 @@ HTML、CSS、JavaScript、Vue.js 等前端技术
 2. [组件玩法](./vue/components.md)
 3. [深入原理](./vue/extra.md)
 
-  </div>
-</div>
 
-<style>
-.flexbox1{
-  display:flex;
-  justify-content:space-between;
-  width:600px;
-}
-
-</style>

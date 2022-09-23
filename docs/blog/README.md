@@ -4,10 +4,6 @@
 
 ----
 
-
-
-<div class="flexbox2">
-  <div>
   
 **Diary**
 
@@ -17,9 +13,7 @@
 4. [22年八月](../diary/2208.md)
 5. [22年九月](../diary/2209.md)
 
-  </div>
 
-  <div>
 
 **Others**
 
@@ -27,15 +21,3 @@
 2. [正则表达式](../others/regexp.md)
 3. [Vim 使用](../others/vim.md)
 
-  </div>
-
-</div>
-
-<style>
-.flexbox2{
-  display:flex;
-  justify-content:space-between;
-  width:400px;
-}
-
-</style>
