@@ -21,7 +21,7 @@ export default defaultTheme({
           text: 'JavaScript',
           children: [
             '/front-end/javascript/fundamentals',
-            '/front-end/javascript/objects',
+            '/front-end/javascript/object',
             '/front-end/javascript/promise',
             '/front-end/javascript/es6',
             '/front-end/javascript/dom',
@@ -91,7 +91,7 @@ export default defaultTheme({
         collapsible: true,
         children: [
           '/front-end/javascript/fundamentals',
-          '/front-end/javascript/objects',
+          '/front-end/javascript/object',
           '/front-end/javascript/promise',
           '/front-end/javascript/es6',
           '/front-end/javascript/dom',

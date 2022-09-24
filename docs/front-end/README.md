@@ -18,7 +18,7 @@ HTML、CSS、JavaScript、Vue.js 等前端技术
 **JavaScript**
 
 1. [基础语法](./javascript/fundamentals.md)
-2. [面向对象](./javascript/objects.md)
+2. [面向对象](./javascript/object.md)
 3. [Promise](./javascript/promise.md)
 4. [ES6 语法](./javascript/es6.md)
 5. [DOM 操作](./javascript/dom.md)

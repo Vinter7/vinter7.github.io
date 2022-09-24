@@ -65,3 +65,46 @@ switch (arg) {
 - `function func(a=1){}` 最初时创建
 - `let func = function(){}` 执行时创建
 - `() =>{}`
+
+
+## 调试和测试
+
+1. `debugger`命令 类似断点 当然也可以手调
+2. 使用 `Eslint` 规范代码风格
+3. 那些[忍者代码](https://zh.javascript.info/ninja-code)
+4. 使用 `Mocha` 进行自动化测试
+   1. `describe('title', ()=>{})`
+   2. `it('content',()=>{})`
+   3. `assert.equal(func(...arg), result)`
+      - (严格)(不)相等 检查NaN True false 等等
+   4. `before/after(()=>{})`
+   5. `beforeEach/afterEach(()=>{})`
+
+```js
+let pow = (x,y) => x**y
+
+describe("pow", function() {
+
+  it("2 ^ 3 is 8", function() {
+    assert.equal(pow(2, 3), 8);
+  });
+
+  it("3 ^ 4 is 81", function() {
+    assert.equal(pow(3, 4), 81);
+  });
+
+  function makeTest(x) {
+    let expected = x * x * x;
+    it(`${x} ^ 3 is ${expected}`, function() {
+      assert.equal(pow(x, 3), expected);
+    });
+  }
+
+  for (let x = 1; x <= 5; x++) {
+    makeTest(x);
+  }
+
+});
+```
+
+
