@@ -9,6 +9,10 @@
 - 种类
   - number bigint string boolean null undefined symbol object
   - `typeof x`
+  - 原始类型的方法
+    - 通过对象包装器实现
+    - `null/undefined` 没有包装器也没有任何方法
+    - 使用后销毁
 - 转换
   - 转字符串
     - `String(value)`
@@ -107,4 +111,40 @@ describe("pow", function() {
 });
 ```
 
+## 数字类型
 
+- 数字写法
+  - `7_300_000_000` `7.3e9` `1e-6`
+  - `0xff` `0b1111` `0o377`
+  - * `num.toString(进制2-36)` `255..toString(16)`
+- 舍入
+  - `Math.floor/ceil/round/trunc`
+  - `Math.round(num*100)/1000` `+num.toFixed(precision)`
+- 一些函数
+  - `isFinite(num)` `isNaN(num)` 是否无限/错误
+  - `parseInt(str[,进制])` `parseFloat(str)` 提取数字
+- Math
+  - `.random()` [0,1)
+  - `.max/min()`
+  - `.pow(n,power)`
+  - 三角相关 略
+
+## 字符类型
+
+- `'' "" ``${}`` `
+- `length` 是一个属性
+- `str[n]` `for(let i of str){}`
+- 不可变
+- 一些方法
+  - `.toUpperCase/toLowerCase()` 大小写
+  - `.indexOf(substr[,pos])` `.lastIndexOf(substr[,pos])`返回位置&-1
+    - `if(~str.indexOf(c)){}` ~n==-(n+1)
+  - `.includes(substr[,pos])` 有无
+  - `.starts/endsWith(substr)` 有无开头结尾
+  - `.slice(start[,end])` 切片,支持负数
+  - `.substring(start[,end])` 切片,支持start>end
+  - `.substr(start[,length])` 给长度,支持负数
+  - `.codePointAt(pos)` `String.fromCodePoint(pos)` 查看代码和创建字符
+  - `.localeCompare(str2)` str1-str2的顺序
+  - `.trim()` 删除前后空格
+  - `.repeat(n)` 重复
