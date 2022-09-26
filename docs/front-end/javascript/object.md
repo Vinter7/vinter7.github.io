@@ -37,7 +37,7 @@
   - 全局 Symbol (相同名字相同实体)
     - `let id = Symbol.for('key')`
     - `Symbol.keyFor(id)` `=>'key'`
-  - 系统 symbol
+  - 系统 symbol 微调对象
     - `Symbol.iterator`
     - `Symbol.toPrimitive`
     - ...
@@ -46,6 +46,11 @@
   - 在输出时时转为文字
   - `Symbol.toPrimitive` `obj.valueOf()` `obj.toString()`
   - 返回原始类型而非对象
+- 迭代
+  - `Object.keys(obj)` 返回所有键的数组
+  - `Object.values(obj)` 返回所有值的数组
+  - `Object.entries(obj)` 返回所有`[键,值]`的数组
+  - `Object.fromEntries(Object.entries(prices).map())` 迭代操作
 
 ## 数组
 
@@ -78,4 +83,168 @@
   - `Array.of(7)` =>`[7]`
 - `thisArg` 略
 
+## 可迭代对象
+
+- `Symbol.iterator` 方法 返回一个有`next()`方法的对象(迭代器)
+- `next()`返回`{done, value}` done=true时结束
+
+```js
+//方法1
+let range = {
+  from: 1,
+  to: 5
+};
+
+range[Symbol.iterator] = function() {
+  return {
+    current: this.from,
+    last: this.to,
+    next() {
+      // 4. 它将会返回 {done:.., value :...} 格式的对象
+      if (this.current <= this.last) {
+        return { done: false, value: this.current++ };
+      } else {
+        return { done: true };
+      }
+    }
+  };
+};
+//方法2
+let range = {
+  from: 1,
+  to: 5,
+
+  [Symbol.iterator]() {
+    this.current = this.from; //初始
+    return this;
+  },
+
+  next() {
+    if (this.current <= this.to) {
+      return { done: false, value: this.current++ };
+    } else {
+      return { done: true };
+    }
+  }
+};
+
+for (let num of range) {
+  alert(num); // 1, 然后是 2, 3, 4, 5
+}
+```
+
+- 可迭代 支持`for of`
+- 类数组 有数字索引和`length`
+- 字符串可迭代也是类数组
+- `Array.from(obj[,mapfunc,thisArg])` 将可迭代或类数组转成数组
+
+
+## Map & WeakMap
+
+- Map的键支持任何类型
+- 支持 `for of` 按插入顺序
+- 方法
+  - `new Map()` 创建 map。
+  - `.set(key, value)` 根据键存值。
+  - `.get(key)` 根据键返回值
+  - `.has(key)` key是否存在
+  - `.delete(key)` 删除
+  - `.clear()` 清空
+  - `.size` 返回元素个数
+  - `.keys()` `.values()` `.entries()` 返回键\值\全的可迭代对象
+  - `.forEach((value, key, map) => {})`
+- Map和对象互转
+  - 数组 `new Map([[k1,v1],[k2,v2]])`
+  - 对象 `new Map(Object.entries(obj))`
+  - 数组 `Object.fromEntries([[],[]])`
+  - Map `Object.fromEntries(map)`
+
+
+<br>
+
+- `WeakMap` 的键为对象
+- `.get(key)` `.set(key,value)` `.delete(key)` `.has(key)`
+- 主要用于额外数据的存储,类似缓存
+- 当对象不可达时,键值就被清除
+
+
+## Set & WeakSet
+
+
+- 不重复
+- 支持 `for of` 按插入顺序
+- 方法
+  - `new Set(iterable)` 用可迭代对象创建
+  - `.add(value)` 添加值，返回 set
+  - `.delete(value)` 删除值，存在 true 否则 false
+  - `.has(value)` 是否存在
+  - `.clear()` 清空
+  - `.size` 返回个数
+  - `.forEach((value, valueAgain, set) => {}` 为了与 Map 兼容
+  - `.keys()` `.values()` `.entries()` 返回值\值\全的可迭代对象
+
+<br>
+
+- `WeakSet` 只能添加对象
+- add has delete
+- 不可迭代
+- 对象不可达时,值就被清除
+
+## 解构赋值
+
+**数组解构**
+
+- `let [a,b]="a b".split(' ')`
+- `let [a,,c]="abc"`
+- `for(let [k,v] of Object.entries(obj)/Map){}`
+- `[a,b]=[b,a]`
+- `[a,b,...c]='abcdefg'`
+- `[a='a',b='b']=['c']`
+
+
+**对象解构**
+
+- `let {a,b}={a:1,b:2,c:3}`
+- `let {width:w=100}={}` key:改名=默认值
+- 支持`...`剩余模式
+- 没有let时 `({}={})`
+
+**嵌套解构**
+
+```javascript
+let options = {
+  size: {
+    width: 100,
+    height: 200
+  },
+  items: ["Cake", "Donut"],
+  extra: true
+};
+
+// 为了清晰起见，解构赋值语句被写成多行的形式
+let {
+  size: { // 把 size 赋值到这里
+    width,
+    height
+  },
+  items: [item1, item2], // 把 items 赋值到这里
+  title = "Menu" // 在对象中不存在（使用默认值）
+} = options;
+```
+
+**智能函数参数**
+
+
+```js
+let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"]
+};
+
+function showMenu({title = "Untitled", pay = 100, items = []}={}){}
+
+showMenu(options);
+showMenu({}); //全部取默认值 
+showMenu(); //加了={}就能这样了
+```
 
