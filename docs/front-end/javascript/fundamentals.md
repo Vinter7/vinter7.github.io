@@ -148,3 +148,55 @@ describe("pow", function() {
   - `.localeCompare(str2)` str1-str2的顺序
   - `.trim()` 删除前后空格
   - `.repeat(n)` 重复
+
+
+
+## 链表
+
+```js
+let list = { value: 1 };
+list.next = { value: 2 };
+list.next.next = { value: 3 };
+list.next.next.next = { value: 4 };
+list.next.next.next.next = null;
+
+list={value:'new',next:list} //加到开头
+list.next=list.next.next //删除
+list.next={value:'add',next:list.next} //加一个
+```
+
+可以加`prev` `tail`属性往前或到最后
+
+## Rest & Spread
+
+- `function(a,b,...args){}` 
+- `arguments` 包含所有参数的类数组 箭头函数不支持
+- `...arr` 数组转参数 支持可迭代对象 
+- `let copy = {...obj}/[...arr]` 浅拷贝
+
+## 闭包
+
+> 闭包 是指一个函数可以记住其外部变量并可以访问这些变量,在js中，所有函数都是闭包的,所有函数都有名为`[[Environment]]`的隐藏属性,该属性保存了对创建该函数的词法环境的引用。
+
+```js
+function makeCounter() {
+  let count = 0;
+
+  return function() {
+    return count++;
+  };
+}
+
+let counter = makeCounter();
+```
+
+`var`只有函数作用域和全局作用域,可以重复声明,有变量提升
+
+
+## 深入函数
+
+- 函数是对象
+  - 属性 `name` `length`
+  - 可以自定义属性
+- `let func1 = function fun2(){}` fun2为内部函数名
+- `new Function('a','b','return a+b')` 字符串转函数 只能访问全局变量

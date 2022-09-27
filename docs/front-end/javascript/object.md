@@ -81,6 +81,7 @@
   - `.copyWithin(target,start,end)` 复制自身部分到target
   - `.flat(depth)` `.flatMap(func)` 扁平化
   - `Array.of(7)` =>`[7]`
+  - `Array.from(obj)` 类数组和可迭代转数组 `[...obj]`
 - `thisArg` 略
 
 ## 可迭代对象
@@ -247,4 +248,56 @@ showMenu(options);
 showMenu({}); //全部取默认值 
 showMenu(); //加了={}就能这样了
 ```
+
+## 日期和时间
+
+- 创建
+  - `new Date()` 当前时间
+  - `new Date(ms)` 通过时间戳创建 可负
+  - `new Date('2022-08-08')` *同下文`Date.parse()`
+  - `new Date(y,m,d,h,m,s,ms)`
+    - y四位 两位为19xx
+    - m 0~11
+    - d 默认1
+    - h m s ms 默认0
+- 查方法
+  - `.getFullYear()`
+  - `.getMonth()` 0-11
+  - `.getDate()`
+  - `.getHours()`
+  - `.getMinutes()`
+  - `.getSeconds()`
+  - `.getMilliseconds()`
+  - `.getDay()` 0-6
+  - `.getTime()` 时间戳
+  - `getTimezoneOffset()` 时差
+- 设置方法
+  - `.setFullYear(year, [month], [date])`
+  - `.setMonth(month, [date])`
+  - `.setDate(date)`
+  - `.setHours(hour, [min], [sec], [ms])`
+  - `.setMinutes(min, [sec], [ms])`
+  - `.setSeconds(sec, [ms])`
+  - `.setMilliseconds(ms)`
+  - `.setTime(milliseconds)`
+- 使用查写组合可以任意加减
+- 运算转数字为时间戳
+- 类方法
+  - `Date.now()` 返回当前时间戳
+  - `Date.parse(str)` 返回时间戳
+    - YYYY-MM-DDTHH:mm:ss.sssZ
+    - '2012-01-26T13:51:50.417-07:00'
+
+
+## Json
+
+- `JSON.stringify(value[, replacer, space])` 转json
+  - 忽略 方法 Symbol undefined
+  - `replacer` 要转换的名单,可为函数
+  - `space` 美化
+  - 可以用`toJSON(){}` 自定义
+- `JSON.parse(str[, reviver])`转对象
+  - 可以转数组
+  - `reviver` (key,value)=>{} 进行一些额外操作
+
 
