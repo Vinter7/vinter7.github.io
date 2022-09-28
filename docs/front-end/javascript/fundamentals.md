@@ -71,6 +71,18 @@ switch (arg) {
 - `() =>{}`
 
 
+<br>
+
+
+- `setTimeout(func,delay,args...)` 延时
+- `setInterval(func,delay,args...)` 重复
+- 会返回定时器标记符
+- `clearTimeout(timerId)` 清除
+- 嵌套setTimeout实现重复能保证更加精确的时间
+  - `function run(){setTimeout(run,100)}`
+- 零延时的 setTimeout 在程序执行完后调用
+
+
 ## 调试和测试
 
 1. `debugger`命令 类似断点 当然也可以手调
@@ -200,3 +212,36 @@ let counter = makeCounter();
   - 可以自定义属性
 - `let func1 = function fun2(){}` fun2为内部函数名
 - `new Function('a','b','return a+b')` 字符串转函数 只能访问全局变量
+- 缓存装饰器
+
+```js
+function slow(x) {
+  // 这里可能会有重负载的 CPU 密集型工作
+  alert(`Called with ${x}`);
+  return x;
+}
+
+function cachingDecorator(func) {
+  let cache = new Map()
+  return function(x) { 
+    if (cache.has(x)) {  //只能缓存单参数
+      return cache.get(x)
+    }
+
+    //let result = func(x)
+    let result = func.call(this,x)
+
+    cache.set(x, result)
+    return result
+  }
+}
+
+slow = cachingDecorator(slow);
+
+```
+
+- `func(args)`->`fun.call(obj,args)` 把里面的this指向obj
+  - `[].join.call(arrLike)` 对类数组使用join
+- `func.call(obj,...args)` -> `func.apply(obj,args)` args为类数组
+  - `let func2 = function(){return func.apply(this,args)}` 呼叫转移
+
