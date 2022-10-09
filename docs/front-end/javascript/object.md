@@ -300,4 +300,54 @@ showMenu(); //加了={}就能这样了
   - 可以转数组
   - `reviver` (key,value)=>{} 进行一些额外操作
 
+## 深入对象
 
+### 属性
+
+**属性标志**
+
+- 属性标志 默认true
+  - `writable` 可读写 false只读
+  - `enumerable` 可枚举
+  - `configurable` 可更改和删除属性标志
+- 属性标识相关方法
+  - `Object.getOwnPropertyDescriptor(obj, propertyName)` 查
+  - `Object.getOwnPropertyDescriptors(obj)` 查全部属性描述符
+  - `Object.defineProperty(obj, propertyName, descriptor)` 改
+  - `Object.defineProperties(obj, descriptors)` 设置多个属性
+  - 克隆对象`let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj))`
+- 全局限制访问的方法 略
+
+
+**访问器属性**(与数据属性相对)
+
+```js
+let user = {
+  name: "John",
+  surname: "Smith",
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
+
+  set fullName(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
+};
+alert(user.fullName);
+user.fullName = "Alice Cooper";
+alert(user.name); // Alice
+alert(user.surname); // Cooper
+```
+
+得到一个可读可写的虚拟属性,可以用`_prop`来存储(内部属性),有时可以用来为已废弃的属性提供兼容性(通过新属性计算产生)
+
+- 访问器属性描述符
+  - `get` 函数
+  - `set` 函数
+  - `enumerable` 可枚举
+  - `configurable` 可配置
+
+### 原型和继承
+
+pass

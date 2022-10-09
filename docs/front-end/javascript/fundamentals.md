@@ -71,15 +71,15 @@ switch (arg) {
 - `() =>{}`
 
 
-<br>
+**计划调用**
 
 
-- `setTimeout(func,delay,args...)` 延时
+- `setTimeout(func,delay,args...)` 延时(毫秒)
 - `setInterval(func,delay,args...)` 重复
 - 会返回定时器标记符
 - `clearTimeout(timerId)` 清除
 - 嵌套setTimeout实现重复能保证更加精确的时间
-  - `function run(){setTimeout(run,100)}`
+  - `setTimeout(function run(){setTimeout(run,100)},100)`
 - 零延时的 setTimeout 在程序执行完后调用
 
 
@@ -207,12 +207,15 @@ let counter = makeCounter();
 
 ## 深入函数
 
+**函数冷知识**
+
 - 函数是对象
   - 属性 `name` `length`
   - 可以自定义属性
 - `let func1 = function fun2(){}` fun2为内部函数名
 - `new Function('a','b','return a+b')` 字符串转函数 只能访问全局变量
-- 缓存装饰器
+
+**缓存装饰器**
 
 ```js
 function slow(x) {
@@ -240,8 +243,43 @@ slow = cachingDecorator(slow);
 
 ```
 
+**call/apply**
+
 - `func(args)`->`fun.call(obj,args)` 把里面的this指向obj
   - `[].join.call(arrLike)` 对类数组使用join
 - `func.call(obj,...args)` -> `func.apply(obj,args)` args为类数组
   - `let func2 = function(){return func.apply(this,args)}` 呼叫转移
+
+**函数绑定**
+
+当将对象方法作为回调进行传递是会出现丢失 this 的问题
+
+> 我常常喜欢把对象想象成一个文件夹,属性想象成数据,方法想象成exe,那么在这里可以理解成单单把exe文件拿过去了
+
+1. `()=>obj.func()` 不足:在触发前对象发生变化时
+2. 函数内建方法 `let fun2 = func.bind(obj)` 用于把this转设为obj
+
+偏函数(绑定参数)
+- `let mul = (a,b)=>a*b`
+- `let double = nul.bind(null,2)`
+- `double(3)` 6
+
+<button @click="func">run them</button>
+
+<script setup>
+  function func(){
+    let mul = (a,b)=>a*b
+    let double = mul.bind(null,2)
+    alert(double(3))
+  }
+</script>
+
+**箭头函数**
+
+- 常用于不想离开当前上下文的情况
+- 没有this
+- 没有arguments
+- 不能new
+- 没有super
+
 

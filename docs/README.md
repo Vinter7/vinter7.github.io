@@ -4,10 +4,10 @@ title: Home
 heroImage: /images/vue.svg
 actions:
   - text: Front End
-    link: /front-end
+    link: /front-end/
     type: primary
   - text: My Blog
-    link: /blog
+    link: /blog/
     type: secondary
 features:
   - title: Simplicity First
