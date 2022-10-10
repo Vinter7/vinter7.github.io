@@ -310,7 +310,7 @@ showMenu(); //加了={}就能这样了
   - `writable` 可读写 false只读
   - `enumerable` 可枚举
   - `configurable` 可更改和删除属性标志
-- 属性标识相关方法
+- 属性标识相关方法 默认false
   - `Object.getOwnPropertyDescriptor(obj, propertyName)` 查
   - `Object.getOwnPropertyDescriptors(obj)` 查全部属性描述符
   - `Object.defineProperty(obj, propertyName, descriptor)` 改
@@ -349,5 +349,91 @@ alert(user.surname); // Cooper
   - `configurable` 可配置
 
 ### 原型和继承
+
+在 JavaScript 中，对象有一个特殊的隐藏属性 `[[Prototype]]`（如规范中所命名的），它要么为 null，要么就是对另一个对象的引用。该对象被称为“原型”, 当读取一个缺失的属性时，JavaScript 会自动从原型中获取该属性。这被称为“原型继承”,但写入时不使用原型(访问器属性除外)。设置时使用特殊的名字 `__proto__`, `__proto__` 的值可以是对象，也可以是 null。而其他的类型都会被忽略。只能有一个 `[[Prototype]]`。一个对象不能从其他两个对象获得继承。`__proto__` 是 `[[Prototype]]` 的 getter/setter。`__proto__` 属性已有些过时, 可以使用`Object.getPrototypeOf/Object.setPrototypeOf` 来取代 `__proto__` 去 get/set 原型
+
+```js
+let user = {
+  name: "John",
+  surname: "Smith",
+
+  set fullName(value) {
+    [this.name, this.surname] = value.split(" ");
+  },
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  }
+};
+
+let admin = {
+  __proto__: user,
+  isAdmin: true
+};
+
+alert(admin.fullName); // John Smith
+
+admin.fullName = "Alice Cooper"; 
+// 这时方法中的this为admin,因此name和surname都存在admin对象中
+alert(admin.fullName); // Alice Cooper，admin 的内容被修改了
+alert(user.fullName);  // John Smith，user没有变化
+//因此我们可以说方法是共享的 但对象状态不是
+```
+
+**遍历**
+
+- `Object.keys(son)` 只有son的属性
+- `for(let prop in son){}` 先son后parent
+- `son.hasOwnProperty(key)` key是否为son自己的属性
+- 其实用`{...}`定义的对象 默认继承自`Object.prototype` 其`[[Prototype]]` 为null,在这里面有许多方法,它们都是不可枚举的
+- 除了for...in的方法 几乎所有其他键/值获取方法都忽略继承的属性
+
+
+**F.prototype**
+
+- 用构造函数创建new 对象的`[[Prototype]]`来自`Func.prototype`
+- F.prototype 指的是 F 的一个名为 "prototype" 的常规属性
+
+```js
+let animal = {
+  eats: true
+}
+function Rabbit(name) {
+  this.name = name;
+}
+Rabbit.prototype = animal;
+let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+alert( rabbit.eats ); // true
+```
+ 
+- 实际上每个函数都有`prototype`属性
+- 默认为`{constrauctor: Func}`
+- 属性 constructor 指向函数自身
+- 最好通过添加的方式往`prototype`里面加属性 而不是覆盖
+- new对象其实就类同继承了函数的`prototype`属性对应的`{...}`(也可以是null)
+
+
+**原生原型**
+
+::: tip Object.prototype
+`{}`等同于`new Object()`<br>`Object()`是一个构造函数<br>其`prototype`属性是一个巨大的对象<br>因此可以理解`{}`就继承了`Object.prototype`这个大对象<br>也就是说`{...}`默认的`[[Prototype]]`为`Object.prototype`<br>而`Object.prototype`的`[[Prototype]]`为null
+:::
+
+所有的内建原型顶端都是 Object.prototype, 其他内建对象(构造函数)，像 Array、Date、Function 及其他，都在 prototype 上挂载了方法。原生原型可以修改但不要去做除非polyfilling
+
+- [].__proto__ === Array.prototype
+- [].__proto__.__proto__ === Object.prototype
+- [].__proto__.__proto__.__proto__ === null
+
+
+**原型方法**
+
+- `Object.getPrototypeOf(obj)` 读
+- `Object.setPrototypeOf(obj, proto)` 写
+- `Object.create(proto, [descriptors])` 生(可加属性标志)
+  - `let clone = Object.create(Object.getPrototypeOf(obj),Object.getOwnPropertyDescriptors(obj))` 克隆
+  - `let obj = Object.create(null);` 真空对象用于纯粹的存储键/值对(无原型)
+
+### 类
 
 pass
