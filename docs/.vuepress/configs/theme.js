@@ -22,6 +22,7 @@ export default defaultTheme({
           children: [
             '/front-end/javascript/fundamentals',
             '/front-end/javascript/object',
+            '/front-end/javascript/class',
             '/front-end/javascript/promise',
             '/front-end/javascript/es6',
             '/front-end/javascript/dom',
@@ -71,11 +72,7 @@ export default defaultTheme({
       '/diary/2208.md',
       '/diary/2209.md',
     ],
-    '/others/': [
-      '/others/git.md',
-      '/others/regexp.md',
-      '/others/vim.md',
-    ],
+    '/others/': ['/others/git.md', '/others/regexp.md', '/others/vim.md'],
     '/front-end/': [
       {
         text: 'HTML & CSS',
@@ -92,6 +89,7 @@ export default defaultTheme({
         children: [
           '/front-end/javascript/fundamentals',
           '/front-end/javascript/object',
+          '/front-end/javascript/class',
           '/front-end/javascript/promise',
           '/front-end/javascript/es6',
           '/front-end/javascript/dom',
