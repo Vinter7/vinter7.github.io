@@ -291,7 +291,7 @@ slow = cachingDecorator(slow);
   2. 没错误就忽略`catch(err){...}`
   3. 出现错误就停止执行 转向`catch` 忽略剩下的`try`
   4. 变量err为一个error对象
-- 细节
+- 无效
   - 语法错误无效
   - `try`里面异步执行的错误无效
 - Error 对象
@@ -303,8 +303,8 @@ slow = cachingDecorator(slow);
   - new SyntaxError(message)
   - new ReferenceError(message)
   - ...
-  - 捕获后可以再次抛出 用 instanceof 检验
-    - `if (!(err instanceof SyntaxError)) {throw err}`
+- 捕获后可以再次抛出 用 instanceof 检验
+  - `if (!(err instanceof SyntaxError)) {throw err}`
 - try...[catch...]finally 可以没有catch
   - finally 无论出现什么情况下都会执行
   - `function func(){try{return 1}finally{alert('ok')}}`
