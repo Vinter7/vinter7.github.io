@@ -1,6 +1,6 @@
 # 使用对象
 
-[面向对象参考](https://zh.javascript.info/object-basics)
+[对象参考](https://zh.javascript.info/object-basics)
 
 ---
 

@@ -1,5 +1,8 @@
 # 原型和类
 
+[参考](https://zh.javascript.info/)
+
+---
 
 ## 属性
 
