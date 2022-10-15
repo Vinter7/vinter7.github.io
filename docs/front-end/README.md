@@ -20,7 +20,7 @@ HTML、CSS、JavaScript、Vue.js 等前端技术
 1. [基础语法](./javascript/fundamentals.md)
 2. [使用对象](./javascript/object.md)
 3. [原型和类](./javascript/class.md)
-4. [Promise](./javascript/promise.md)
+4. [网络请求](./javascript/request.md)
 5. [ES6 语法](./javascript/es6.md)
 6. [DOM 操作](./javascript/dom.md)
 7. [浏览器事件](./javascript/events.md)
@@ -33,5 +33,13 @@ HTML、CSS、JavaScript、Vue.js 等前端技术
 1. [基础语法](./vue/essentials.md)
 2. [组件玩法](./vue/components.md)
 3. [深入原理](./vue/extra.md)
+4. [Vue 路由](./vue/router.md)
+5. [Vue 存储库](./vue/pinia.md)
+6. [混合式Vue框架](./vue/nuxt.md)
 
 
+**Node.js**
+
+1. [基本模块](./node/modules.md)
+2. [Express](./node/express.md)
+3. [Koa](./node/koa.md)
