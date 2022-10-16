@@ -168,6 +168,7 @@ alert("code finished"); // 这个 alert 先显示
   - 本质类似`promise.then()` 处理等待
   - 现允许在modules顶层使用
     - `let user = await fetch('user.json')`
+    - `(async ()=>{await...})()` 通用方法
   - 支持`thenable`对象
   - 支持和静态方法一起用
     - `let results = await Promise.all(promises)`

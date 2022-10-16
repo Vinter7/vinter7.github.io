@@ -70,7 +70,33 @@ gen().next().value
 gen().throw(new Error("error"))
 ```
 
+**异步迭代**
 
+- 异步可迭代对象 (值是以异步的形式出现)
+- 提供 iterator 的对象方法 `Symbol.asyncIterator`
+- `next()` 返回 `Promise` (resolve的{value,done})
+- 循环列举 `for await (let i of iter){...}`
+- `[...iter]` 失效
+- 构造一个异步迭代对象
+
+```js
+let range = {
+  from: 1,
+  to: 5,
+
+  // 这一行等价于 [Symbol.asyncIterator]: async function*()
+  async *[Symbol.asyncIterator]() {
+    for(let value = this.from; value <= this.to; value++) {
+      await new Promise(resolve => setTimeout(resolve, 1000)) //等一秒
+      yield value;
+    }
+  }
+}
+
+(async () => {
+  for await (let i of range) alert(i)
+})();
+```
 
 
 ## module
