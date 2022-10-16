@@ -70,7 +70,6 @@ export default defaultTheme({
           '/front-end/javascript/object',
           '/front-end/javascript/class',
           '/front-end/javascript/promise',
-          '/front-end/javascript/es6',
           '/front-end/javascript/request',
           '/front-end/javascript/events',
           '/front-end/javascript/others',
