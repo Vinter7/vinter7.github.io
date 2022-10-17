@@ -22,6 +22,8 @@
   - 输入错误 `.throw(new Error(message))`
 - `.return(arg)` 直接完成并返回arg
 
+<br>
+
 ```js
 //组合
 function* genRange(start, end) {
@@ -69,6 +71,8 @@ function* gen() {
 gen().next().value
 gen().throw(new Error("error"))
 ```
+
+<br>
 
 **异步迭代**
 
