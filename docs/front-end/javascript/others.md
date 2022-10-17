@@ -99,5 +99,31 @@ let range = {
 ```
 
 
-## module
+## Module
 
+- ES6 语言级模块系统
+- 启用
+  - `<script type='module'>` `this`为`undefined`
+  - `{"type": "module",}` in `package.json`
+- `import.meta` 对象包含关于当前模块的信息
+- 使用构建工具会轻松不少
+- 静态导入
+  - 命名导出 和 默认导出
+  - `default` 作名称
+  - `export {default as name,others} from './m.js'` 重新导出
+- 动态导入 (不用`type='module'`)
+  - `import('./m.js')` 返回一个promise resolve为包含所有导出的对象
+  - 特殊用法 并非函数
+  - `let {default:name,others} = await import('./m.js')`
+
+<br>
+
+|  | 导出 | 导入 |
+| :---: | --- | --- |
+| 导入代码<br>`{code}` | `console.log('ok')` | `import './m.js'` |
+| 声明前导出 | `export let i = ...` | `import { i [as ii] } from './m.js'` |
+| 声明后导出 | `export {arr,func}` | `import { arr,func } from './m.js'` |
+| 全部导入 | 同上 | `import * as obj from './m.js'` |
+| 默认导出 | `export default anydata` | `import name from './m.js' ` |
+| `default`<br>名称 | `export {f as default}` | `import {default as name} from './m.js' ` |
+| 动态导入 | 同上 | `let {default:name,others} = await import('./m.js')` |
