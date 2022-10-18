@@ -41,7 +41,6 @@
   - center
   - font
   - sub sup
-  - font
 - HTML5
   - header main footer
   - nav ul li

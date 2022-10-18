@@ -42,6 +42,18 @@
 
 ## Fetch
 
+- `let promise = fetch(url,[options])` 
+- 典型的 `fetch` 请求由两个 `await` 调用组成
+  - `let response = await fetch(url, options)`
+    - 未连通会`reject`
+    - `.status .ok .headers` 状态码 是否ok 类似于 Map的对象
+  - `let result = await response.json()` 获取 response body
+    - `.text() .json() .formData() .blob() .arrayBuffer()`
+- fetch 选项
+  - `method: 'POST',`
+  - `headers: {},`
+  - `body` response body 类型 
+    - string(json) FormData Blob/BufferSource
 
 ## Axios
 
