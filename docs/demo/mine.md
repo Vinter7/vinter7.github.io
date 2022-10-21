@@ -9,12 +9,12 @@ function* genNum(num, n) {
 }
 //邻居格子相对位置
 function neighbor(i) {
-  if (!(i % 20)) {
-    return [-20, 20, -19, 1, 21]
-  } else if (!((i + 1) % 20)) {
-    return [-21, -1, 19, -20, 20]
+  if (!(i % w)) {
+    return [-w, w, 1-w, 1, w+1]
+  } else if (!((i + 1) % w)) {
+    return [-w-1, -1, w-1, -w, w]
   } else {
-    return [-21, -1, 19, -20, 20, -19, 1, 21]
+    return [-w-1, -1, w-1, -w, w, 1-w, 1, w+1]
   }
 }
 // 周围几个雷
@@ -45,31 +45,34 @@ function showAround(i) {
 function ok(i) {
   if (arr[i] === 1) {
     alert('此处是雷,游戏结束')
-    return (end.value = 1)
+    return (end.value = true)
   }
   status.value[i] = 1
   if (!status.value.includes(0)) {
     alert('所有雷均已排除,恭喜你获得胜利')
-    return (end.value = 1)
+    return (end.value = true)
   }
   if (aroundArr[i] == 0) showAround(i)
 }
 
-let status = ref([...genNum(0, 400)])
-let end = ref(0)
+let h = 15
+let w = 15
+let m = 20
+let status = ref([...genNum(0, h*w)])
+let end = ref(false)
 let record = []
-let arr = [...genNum(1, 50), ...genNum(0, 350)]
+let arr = [...genNum(1, m), ...genNum(0, h*w-m)]
 arr.sort(() => 0.5 - Math.random()).sort(() => 0.5 - Math.random())
 let aroundArr = arr.map((i, index) => (i ? 9 : around(index)))
 </script>
 
 
 
-# 高枕枕的游戏仿写 - 扫雷
+# 扫雷
 
 ----
 
-<div class="grid">
+<div class="grid" :style="{'--w':w}">
   <button
     v-for="(i, index) in aroundArr"
     @click="status[index] == 2 ? (status[index] = 0) : ok(index)"
@@ -86,12 +89,9 @@ let aroundArr = arr.map((i, index) => (i ? 9 : around(index)))
       {{ `\u{1F6A9}` }}
     </div>
     <!-- 地雷 -->
-    <div v-if="end">
+    <div v-if="end && status[index] != 2">
       {{ arr[index] ? `\u{1F4A3}` : '' }}
     </div>
-    <!-- <div v-if="status[index] == 0">
-      {{ index }}
-    </div> -->
   </button>
 </div>
 
@@ -100,12 +100,11 @@ let aroundArr = arr.map((i, index) => (i ? 9 : around(index)))
 <style scoped>
 
 .grid {
-  margin: auto;
   display: grid;
-  width: 800px;
-  height: 800px;
-  grid-template-rows: repeat(20, 1fr);
-  grid-template-columns: repeat(20, 1fr);
+  width: 500px;
+  height: 500px;
+  grid-template-rows: repeat(var(--w), 1fr);
+  grid-template-columns: repeat(var(--w), 1fr);
   border: solid black;
 }
 .btn {

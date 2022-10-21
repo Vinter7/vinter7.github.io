@@ -34,6 +34,10 @@ export default defaultTheme({
         },
       ],
     },
+    {
+      text: 'Demo',
+      children: ['/demo/2048', '/demo/mine', '/demo/sheep'],
+    },
   ],
   logo: '/images/风车.png',
   repo: 'Vinter7/vinter7.github.io',
@@ -47,11 +51,8 @@ export default defaultTheme({
       '/diary/2208.md',
       '/diary/2209.md',
     ],
-    '/others/': [
-      '/others/git.md',
-      '/others/regexp.md',
-      '/others/vim.md',
-    ],
+    '/others/': ['/others/git.md', '/others/regexp.md', '/others/vim.md'],
+    '/demo/': ['/demo/2048', '/demo/mine', '/demo/sheep'],
     '/front-end/': [
       {
         text: 'HTML & CSS',
