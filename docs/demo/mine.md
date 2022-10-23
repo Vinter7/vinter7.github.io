@@ -106,7 +106,7 @@
   <div class="flexbox">
     <div
       class="grid"
-      :style="`grid-template-rows: repeat(${h}, 32px);grid-template-columns: repeat(${w}, 30px);`"
+      :style="`grid-template: repeat(${h}, 32px) / repeat(${w}, 30px);`"
     >
       <button
         v-for="(i, index) in aroundArr"
@@ -173,18 +173,18 @@
   <style scoped>
   .grid {
     display: grid;
-    border: solid black;
+    gap: 2px;
   }
   .btn {
-    background-color: skyblue;
-    border: dashed 1px;
+    background-color: var(--c-brand);
+    border: none;
   }
   .btn:hover {
-    background-color: rgb(98, 201, 241);
+    background-color: var(--c-brand-light);
   }
   .btn:disabled {
-    color: black;
-    background-color: #eeeeee;
+    color: var(--c-bg);
+    background-color: var(--c-text-light);
   }
   .flexbox {
     display: flex;
