@@ -1,5 +1,7 @@
 import { defineUserConfig } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { path } from '@vuepress/utils'
 import theme from './configs/theme'
 
 export default defineUserConfig({
@@ -8,5 +10,10 @@ export default defineUserConfig({
   dest: './dist',
   head: [['link', { rel: 'icon', href: '/images/风车.png' }]],
   theme,
-  plugins: [searchPlugin({})],
+  plugins: [
+    searchPlugin({}),
+    registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, './components'),
+    }),
+  ],
 })
