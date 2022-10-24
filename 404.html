@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.51">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <link rel="icon" href="/images/风车.png"><title>高枕枕のBlog</title><meta name="description" content="高枕枕的知识库兼博客站">
+    <link rel="modulepreload" href="/assets/app.d5c6f758.js"><link rel="modulepreload" href="/assets/404.html.338cca19.js"><link rel="modulepreload" href="/assets/404.html.d2dc3323.js"><link rel="prefetch" href="/assets/index.html.d0c0b1ce.js"><link rel="prefetch" href="/assets/index.html.f7bee182.js"><link rel="prefetch" href="/assets/2048.html.e0a9766e.js"><link rel="prefetch" href="/assets/mine.html.b4e81e05.js"><link rel="prefetch" href="/assets/sheep.html.2a379f15.js"><link rel="prefetch" href="/assets/2206.html.ce9e4de8.js"><link rel="prefetch" href="/assets/2207.html.0eb15823.js"><link rel="prefetch" href="/assets/2208.html.7f5bff9a.js"><link rel="prefetch" href="/assets/2209.html.aef8f3a2.js"><link rel="prefetch" href="/assets/index.html.ca7e1672.js"><link rel="prefetch" href="/assets/the-past.html.fa13db4f.js"><link rel="prefetch" href="/assets/index.html.97d68e14.js"><link rel="prefetch" href="/assets/git.html.1164e9cf.js"><link rel="prefetch" href="/assets/regexp.html.2633dfde.js"><link rel="prefetch" href="/assets/vim.html.28decb27.js"><link rel="prefetch" href="/assets/Configs.html.b70cf37f.js"><link rel="prefetch" href="/assets/index.html.d26ff5a5.js"><link rel="prefetch" href="/assets/Markdown.html.8802ad0f.js"><link rel="prefetch" href="/assets/css.html.9cff1552.js"><link rel="prefetch" href="/assets/html.html.df0f2a74.js"><link rel="prefetch" href="/assets/index.html.f08966ae.js"><link rel="prefetch" href="/assets/sass.html.49dbdfa8.js"><link rel="prefetch" href="/assets/class.html.22073c41.js"><link rel="prefetch" href="/assets/dom.html.2961560a.js"><link rel="prefetch" href="/assets/events.html.ccf17d4f.js"><link rel="prefetch" href="/assets/fundamentals.html.c909a99f.js"><link rel="prefetch" href="/assets/index.html.14ba7658.js"><link rel="prefetch" href="/assets/object.html.57f43a9d.js"><link rel="prefetch" href="/assets/others.html.4c822411.js"><link rel="prefetch" href="/assets/promise.html.61a727d7.js"><link rel="prefetch" href="/assets/request.html.a122935b.js"><link rel="prefetch" href="/assets/express.html.c3b94eb6.js"><link rel="prefetch" href="/assets/index.html.633cf42e.js"><link rel="prefetch" href="/assets/koa.html.ffbc6c3d.js"><link rel="prefetch" href="/assets/modules.html.ae7f5512.js"><link rel="prefetch" href="/assets/components.html.7ff81be6.js"><link rel="prefetch" href="/assets/essentials.html.31e34ae2.js"><link rel="prefetch" href="/assets/extra.html.6a23871c.js"><link rel="prefetch" href="/assets/index.html.6167a8a7.js"><link rel="prefetch" href="/assets/nuxt.html.444c480a.js"><link rel="prefetch" href="/assets/pinia.html.3a30372a.js"><link rel="prefetch" href="/assets/router.html.4a7c1034.js"><link rel="prefetch" href="/assets/index.html.b1e7c43c.js"><link rel="prefetch" href="/assets/index.html.058ba642.js"><link rel="prefetch" href="/assets/2048.html.b541accb.js"><link rel="prefetch" href="/assets/mine.html.a56e5337.js"><link rel="prefetch" href="/assets/sheep.html.b35a6abb.js"><link rel="prefetch" href="/assets/2206.html.eaa36606.js"><link rel="prefetch" href="/assets/2207.html.604da001.js"><link rel="prefetch" href="/assets/2208.html.402fa8e6.js"><link rel="prefetch" href="/assets/2209.html.dd4cb045.js"><link rel="prefetch" href="/assets/index.html.d11a6d78.js"><link rel="prefetch" href="/assets/the-past.html.69666e85.js"><link rel="prefetch" href="/assets/index.html.09e2d478.js"><link rel="prefetch" href="/assets/git.html.b6a1191f.js"><link rel="prefetch" href="/assets/regexp.html.b1bc2dde.js"><link rel="prefetch" href="/assets/vim.html.563175c2.js"><link rel="prefetch" href="/assets/Configs.html.84a9fdde.js"><link rel="prefetch" href="/assets/index.html.41a72d6b.js"><link rel="prefetch" href="/assets/Markdown.html.437a0aab.js"><link rel="prefetch" href="/assets/css.html.669d7bec.js"><link rel="prefetch" href="/assets/html.html.ea9f89af.js"><link rel="prefetch" href="/assets/index.html.3d16eee2.js"><link rel="prefetch" href="/assets/sass.html.c3ad9aa3.js"><link rel="prefetch" href="/assets/class.html.8be36410.js"><link rel="prefetch" href="/assets/dom.html.53fa7568.js"><link rel="prefetch" href="/assets/events.html.cca0ed63.js"><link rel="prefetch" href="/assets/fundamentals.html.eb20bc3f.js"><link rel="prefetch" href="/assets/index.html.cbd5cf0c.js"><link rel="prefetch" href="/assets/object.html.d5cff7e1.js"><link rel="prefetch" href="/assets/others.html.d6065c52.js"><link rel="prefetch" href="/assets/promise.html.98b03fe2.js"><link rel="prefetch" href="/assets/request.html.eeeb3aad.js"><link rel="prefetch" href="/assets/express.html.431e9c83.js"><link rel="prefetch" href="/assets/index.html.5b30d7bc.js"><link rel="prefetch" href="/assets/koa.html.8467d9e4.js"><link rel="prefetch" href="/assets/modules.html.2fdfdcfd.js"><link rel="prefetch" href="/assets/components.html.15dcc523.js"><link rel="prefetch" href="/assets/essentials.html.3f04e3fb.js"><link rel="prefetch" href="/assets/extra.html.5f1c3a2e.js"><link rel="prefetch" href="/assets/index.html.2b3901f7.js"><link rel="prefetch" href="/assets/nuxt.html.c87234db.js"><link rel="prefetch" href="/assets/pinia.html.c093dffe.js"><link rel="prefetch" href="/assets/router.html.e03b78ab.js"><link rel="prefetch" href="/assets/FirstGame.ad58beb0.js"><link rel="prefetch" href="/assets/MineSweeper.30adc81f.js">
+    <link rel="stylesheet" href="/assets/style.362abebb.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><main class="page"><div class="theme-default-content"><h1>404</h1><blockquote>That&#39;s a Four-Oh-Four.</blockquote><a href="/" class="">Take me home</a></div></main></div><!----><!--]--></div>
+    <script type="module" src="/assets/app.d5c6f758.js" defer></script>
+  </body>
+</html>

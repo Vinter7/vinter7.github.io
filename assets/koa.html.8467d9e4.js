@@ -1,0 +1,1 @@
+import{_ as a,o,c as t,a as e,d as s}from"./app.d5c6f758.js";const c={},n=e("h1",{id:"koa",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#koa","aria-hidden":"true"},"#"),s(" Koa")],-1),r=e("p",null,"pass",-1),_=[n,r];function d(i,l){return o(),t("div",null,_)}const f=a(c,[["render",d],["__file","koa.html.vue"]]);export{f as default};
